@@ -34,18 +34,15 @@
         <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Rdocat"
-                android:visibility="invisible"/>
+                android:id="@+id/Rdocat"/>
         <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Rdodog"
-                android:visibility="invisible"/>
+                android:id="@+id/Rdodog"/>
         <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Rdorabbit"
-                android:visibility="invisible"/>
+                android:id="@+id/Rdorabbit"/>
     </RadioGroup>
     <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:id="@+id/BtnOK" android:text="선택완료" android:visibility="invisible"/>

@@ -54,10 +54,13 @@ public class MainActivity extends AppCompatActivity {
                 switch (RGroup.getCheckedRadioButtonId()) {
                     case R.id.Rdodog:
                         imgPet.setImageResource(R.drawable.dog);
+                        break;
                     case R.id.Rdocat:
                         imgPet.setImageResource(R.drawable.cat);
+                        break;
                     case R.id.Rdorabbit:
                         imgPet.setImageResource(R.drawable.rabbit);
+                        break;
                     default:
                         Toast.makeText(getApplicationContext(), "동물 먼저 선택", Toast.LENGTH_SHORT).show();
                 }
