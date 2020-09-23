@@ -1,3 +1,4 @@
+include ':project5_1'
 include ':project5-2'
 include ':Android.project5-1'
 include ':project4_2'
