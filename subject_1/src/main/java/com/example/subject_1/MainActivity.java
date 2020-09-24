@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (i == 0) {
-                    image1.setImageResource(R.drawable.dog);
+                    image1.setImageResource(R.drawable.two);
                     i = 1;
                 } else if (i == 1) {
-                    image1.setImageResource(R.drawable.cat);
+                    image1.setImageResource(R.drawable.three);
                     i = 2;
                 } else {
                     image1.setImageResource(R.drawable.one);
