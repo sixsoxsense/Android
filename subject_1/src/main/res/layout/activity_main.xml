@@ -6,9 +6,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity">
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="자기 소개 앱"
-              android:background="#503581" android:textColor="#FFFF" android:padding="10dp"
-    />
+
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
               android:text="이름: 채영주\n학번: 201658011"
               android:padding="10dp"
@@ -20,12 +18,12 @@
             android:padding="10dp"
     />
     <RadioGroup android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="10dp" android:id="@+id/rgpClass">
         <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                     android:text="A반 (13:00 - 14:15)"
+                     android:text="A반 (13:00 - 14:15)" android:id="@+id/radioButtonA"
         />
         <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                     android:text="B반 (14:30 - 15:45)" android:checked="true"
+                     android:text="B반 (14:30 - 15:45)" android:id="@+id/radioButtonB"
         />
     </RadioGroup>
     <TextView
@@ -36,16 +34,23 @@
             android:gravity="center|left"
     />
 
-    <RadioGroup android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="10dp">
+    <RadioGroup android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:padding="10dp" android:id="@+id/rgpPhone"
+    >
         <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                     android:text="안드로이드 폰" android:checked="true"
+                     android:text="안드로이드 폰" android:id="@+id/radioButtonAnd"
         />
         <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                     android:text="아이폰"
+                     android:text="아이폰" android:id="@+id/radioButtonIp"
         />
     </RadioGroup>
-    <ImageView android:layout_width="match_parent" android:layout_height="200dp" android:id="@+id/image1"/>
+
+    <ImageView android:layout_width="match_parent" android:layout_height="200dp" android:id="@+id/image1"
+               android:layout_gravity="center"
+    />
+
     <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/ChgImg"
-            android:text="다음 사진"/>
+            android:text="다음 사진"
+    />
 
 </LinearLayout>
