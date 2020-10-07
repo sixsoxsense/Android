@@ -1,3 +1,4 @@
+include ':project5_2'
 include ':subject_1'
 include ':project5_1'
 include ':project4_2'
