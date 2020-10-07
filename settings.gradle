@@ -1,10 +1,6 @@
-include ':subject1'
 include ':subject_1'
 include ':project5_1'
-include ':project5-2'
-include ':Android.project5-1'
 include ':project4_2'
-include ':project4_1'
 include ':project4_1'
 include ':app'
 rootProject.name = "Android"
