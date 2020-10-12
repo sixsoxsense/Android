@@ -11,11 +11,12 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
     TimePicker timePicker;
-    Chronometer chronometer;
-    Button chromeStart, chromeEnd;
+    Chronometer chrometer;
     RadioButton rdoCal, rdoTime;
+    RadioGroup radioGroup1;
     TextView tvYear, tvMonth, tvDay, tvHour, tvMin;
     DatePicker datePicker;
+    LinearLayout chromeEnd;
     int selectYear, selectMonth, selectDay;
 
     @Override
@@ -24,13 +25,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("시간 예약");
 
-        chromeStart = findViewById(R.id.chronometer1);
+        chrometer = findViewById(R.id.chromeStart);
         chromeEnd = findViewById(R.id.chromeEnd);
-        chronometer = findViewById(R.id.chronometer1);
+
+        radioGroup1 = findViewById(R.id.radioGroup1);
         rdoCal = findViewById(R.id.radioBtn1);
         rdoTime = findViewById(R.id.radioBtn2);
 
         datePicker = findViewById(R.id.datePicker);
+        timePicker = findViewById(R.id.timePicker);
 
         tvYear = findViewById(R.id.year);
         tvMonth = findViewById(R.id.month);
@@ -38,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
         tvHour = findViewById(R.id.HH);
         tvMin = findViewById(R.id.MM);
 
-
         rdoCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 datePicker.setVisibility(View.VISIBLE);
+                timePicker.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -50,36 +53,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 datePicker.setVisibility(View.INVISIBLE);
+                timePicker.setVisibility(View.VISIBLE);
             }
         });
 
-        chromeStart.setOnClickListener(new View.OnClickListener() {
+        chrometer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rdoCal.setVisibility(View.VISIBLE);
-                rdoTime.setVisibility(View.VISIBLE);
-                datePicker.setVisibility(View.VISIBLE);
+                radioGroup1.setVisibility(View.VISIBLE);
 
-                chronometer.setBase(SystemClock.elapsedRealtime());
-                chronometer.start();
-                chronometer.setTextColor(Color.RED);
+                chrometer.setBase(SystemClock.elapsedRealtime());
+                chrometer.start();
+                chrometer.setTextColor(Color.RED);
             }
         });
 
         chromeEnd.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                chronometer.stop();
-                chronometer.setTextColor(Color.BLUE);
+                chrometer.stop();
+                chrometer.setTextColor(Color.BLUE);
                 tvYear.setText(Integer.toString(selectYear));
                 tvMonth.setText(Integer.toString(selectMonth));
                 tvDay.setText(Integer.toString(selectDay));
                 tvHour.setText(Integer.toString(timePicker.getCurrentHour()));
                 tvMin.setText(Integer.toString(timePicker.getCurrentMinute()));
 
-                rdoCal.setVisibility(View.INVISIBLE);
-                rdoTime.setVisibility(View.INVISIBLE);
+                radioGroup1.clearCheck();
+
+                radioGroup1.setVisibility(View.INVISIBLE);
                 datePicker.setVisibility(View.INVISIBLE);
+                timePicker.setVisibility(View.INVISIBLE);
                 return true;
             }
         });

@@ -10,10 +10,10 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:orientation="vertical">
         <Chronometer android:layout_width="match_parent" android:layout_height="wrap_content"
-                     android:id="@+id/chronometer1" android:format="예약에 걸린 시간 %s"
+                     android:id="@+id/chromeStart" android:format="예약에 걸린 시간 %s"
                      android:gravity="center" android:textColor="#0000FF"/>
         <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:visibility="invisible">
+                    android:visibility="invisible" android:id="@+id/radioGroup1">
             <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
                          android:id="@+id/radioBtn1" android:text="날짜 설정"/>
             <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -28,11 +28,13 @@
             <DatePicker android:layout_width="match_parent" android:layout_height="wrap_content"
                         android:visibility="invisible"
                         android:id="@+id/datePicker" android:datePickerMode="spinner"/>
+            <TimePicker android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:visibility="invisible" android:id="@+id/timePicker"/>
         </FrameLayout>
     </LinearLayout>
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#CCCCCC"
-    android:gravity="center" android:id="@+id/chromeEnd">
+                  android:gravity="center" android:id="@+id/chromeEnd">
         <TextView android:id="@+id/year" android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:text="0000"/>
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="년 "/>
