@@ -27,11 +27,12 @@
         <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
             <CalendarView android:layout_width="match_parent" android:layout_height="wrap_content"
                           android:id="@+id/calendarView1" android:showWeekNumber="false"/>
-            <TimePicker android:id="@+id/timePicker1"/>
+            <TimePicker android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:id="@+id/timePicker1"/>
         </FrameLayout>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#CCCCCC">
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="예약완료"
                 android:id="@+id/btnEnd"/>
         <TextView android:id="@+id/year" android:layout_width="wrap_content" android:layout_height="wrap_content"
