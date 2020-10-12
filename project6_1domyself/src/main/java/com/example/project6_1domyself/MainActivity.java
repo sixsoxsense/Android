@@ -1,3 +1,6 @@
+/*
+ 인텔리제이환경에서 작성되었습니다.201658011 채영주
+ */
 package com.example.project6_1domyself;
 
 import android.graphics.Color;
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("시간 예약");
+        setTitle("채영주-201658011");
 
         chrometer = findViewById(R.id.chromeStart);
         chromeEnd = findViewById(R.id.chromeEnd);
@@ -78,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 tvDay.setText(Integer.toString(selectDay));
                 tvHour.setText(Integer.toString(timePicker.getCurrentHour()));
                 tvMin.setText(Integer.toString(timePicker.getCurrentMinute()));
-
+                
+                //롱클릭 이후 다시 예약시 라디오 버튼중 마지막으로 체크한게 계속 체크되어있어서 클리어 체크 사용
                 radioGroup1.clearCheck();
 
                 radioGroup1.setVisibility(View.INVISIBLE);
@@ -91,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
+                //year, month, day 순
                 selectYear = i;
                 selectMonth = i1;
                 selectDay = i2;
