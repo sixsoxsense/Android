@@ -23,7 +23,7 @@ public class MainActivity extends TabActivity {
         tabSpecName.setContent(R.id.tabName);
         tabHost.addTab(tabSpecName);
 
-        TabHost.TabSpec tabSpecAsk = tabHost.newTabSpec("tabAsk").setIndicator("질문");
+        TabHost.TabSpec tabSpecAsk = tabHost.newTabSpec("tabAsk").setIndicator("설문");
         tabSpecAsk.setContent(R.id.tabAsk);
         tabHost.addTab(tabSpecAsk);
 
