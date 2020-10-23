@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         tools:context=".MainActivity"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:id="@android:id/tabhost">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+    >
+        <TabWidget android:layout_width="match_parent" android:layout_height="wrap_content"
+                   android:id="@android:id/tabs"/>
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                     android:id="@android:id/tabcontent">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:id="@+id/tabPicture"
+                          android:background="#4CAF50">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <ViewFlipper android:layout_width="match_parent" android:layout_height="wrap_content"
+                                 android:id="@+id/viewFliper"
+                    >
+                        <ImageView android:layout_width="match_parent" android:layout_height="200dp"
+                                   android:id="@+id/image1"
+                                   android:src="@drawable/one"
+                                   android:layout_gravity="center"
+                        />
+                        <ImageView android:layout_width="match_parent" android:layout_height="200dp"
+                                   android:id="@+id/image2"
+                                   android:src="@drawable/two"
+                                   android:layout_gravity="center"
+                        />
+                        <ImageView android:layout_width="match_parent" android:layout_height="200dp"
+                                   android:id="@+id/image3"
+                                   android:src="@drawable/three"
+                                   android:layout_gravity="center"
+                        />
+                    </ViewFlipper>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                              android:orientation="horizontal">
+                    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:id="@+id/ChgImg"
+                            android:text="@string/nextPic"
+                            android:layout_weight="1"
+                    />
+                    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:id="@+id/StopImg"
+                            android:text="사진보기 정지"
+                            android:layout_weight="1"
+                    />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:id="@+id/tabName"
+                          android:background="#03A9F4">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:text="@string/n_201658011"
+                          android:padding="10dp"
+                />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:id="@+id/tabAsk"
+                          android:background="#FFEB3B">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/classAsk"
+                        android:padding="10dp"
+                />
+                <RadioGroup android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:padding="10dp" android:id="@+id/rgpClass">
+                    <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                 android:text="@string/a_13_00_14_15" android:id="@+id/radioButtonA"
+                    />
+                    <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                 android:text="@string/b_14_30_15_45" android:id="@+id/radioButtonB"
+                    />
+                </RadioGroup>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phoneAsk"
+                        android:padding="10dp"
+                        android:gravity="center|left"
+                />
+                <RadioGroup android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:padding="10dp" android:id="@+id/rgpPhone"
+                >
+                    <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                 android:text="@string/androidPhone" android:id="@+id/radioButtonAnd"
+                    />
+                    <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                 android:text="@string/IOS" android:id="@+id/radioButtonIp"
+                    />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+</TabHost>
