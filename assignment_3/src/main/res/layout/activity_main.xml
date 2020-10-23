@@ -49,7 +49,7 @@
                     />
                     <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:id="@+id/StopImg"
-                            android:text="사진보기 정지"
+                            android:text="@string/stopPic"
                             android:layout_weight="1"
                     />
                 </LinearLayout>
