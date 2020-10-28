@@ -1,3 +1,8 @@
+include ':project8_2'
+include ':project8_1'
+include ':project7_3'
+include ':project7_2'
+include ':project7_1'
 include ':assignment_3'
 include ':project6_1domyself'
 include ':project6_1'
