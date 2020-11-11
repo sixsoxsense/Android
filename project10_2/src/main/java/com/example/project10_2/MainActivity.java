@@ -14,7 +14,13 @@ public class MainActivity extends AppCompatActivity {
     명시적, 암시적 인텐트 구분
 
     명시적: 다른 액티비티 이름 명확히 지정시 사용
-     */
+    
+    암시적: 약속된 액션(Uri)을 지정해서 안드로이드 기존 응용 프로그램(전화,웹열기,갤러리)등 실행하는것 manifest에 권한 추가해야함
+    ex) 119에 전화걸기
+        Intent intent = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:/119"));
+        stertActivity(intent);
+        
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
