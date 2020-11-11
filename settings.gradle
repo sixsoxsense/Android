@@ -1,3 +1,6 @@
+include ':project10_3'
+include ':project10_2'
+include ':project10_1'
 include ':project8_2'
 include ':project8_1'
 include ':project7_3'
