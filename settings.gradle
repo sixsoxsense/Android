@@ -1,5 +1,4 @@
-include ':musclediary'
-include ':starbuckscopy'
+include ':subject'
 include ':project10_3'
 include ':project10_2'
 include ':project10_1'
