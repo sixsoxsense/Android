@@ -9,14 +9,7 @@
         tools:context=".MainActivity">
     <ListView
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:id="@+id/listView">
-
+            android:id="@+id/listView"
+            android:choiceMode="multipleChoice">
     </ListView>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:orientation="horizontal" android:layout_weight="1">
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="빈칸"/>
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="빈칸"/>
-    </LinearLayout>
 </LinearLayout>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="asd"
+    <item android:title="연락처 추가"
           android:id="@+id/menu1"/>
-    <item android:title="asdasd"
+    <item android:title="연락처 삭제"
           android:id="@+id/menu2"/>
+    <item android:title="연락처 정렬"
+          android:id="@+id/menu3"/>
 </menu>
