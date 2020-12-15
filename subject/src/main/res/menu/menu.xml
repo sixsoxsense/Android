@@ -4,6 +4,4 @@
           android:id="@+id/menu1"/>
     <item android:title="연락처 삭제"
           android:id="@+id/menu2"/>
-    <item android:title="연락처 정렬"
-          android:id="@+id/menu3"/>
 </menu>
