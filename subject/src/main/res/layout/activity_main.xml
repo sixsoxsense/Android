@@ -12,6 +12,10 @@
             android:id="@+id/listView"
             android:choiceMode="multipleChoice"
             android:scrollbarSize="5dp"
-            android:scrollingCache="false">
+            android:scrollingCache="false"
+            android:layout_weight="9">
     </ListView>
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="삭제" android:visibility="gone" android:id="@+id/deleteButton"/>
 </LinearLayout>

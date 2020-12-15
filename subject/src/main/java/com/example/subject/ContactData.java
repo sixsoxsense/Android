@@ -1,5 +1,7 @@
 package com.example.subject;
 
+import android.widget.EditText;
+
 public class ContactData {
     String name;
     String phone;
@@ -10,5 +12,4 @@ public class ContactData {
         this.phone = _phone_;
         this.address = _address_;
     }
-
 }

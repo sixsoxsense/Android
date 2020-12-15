@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +23,9 @@ public class ContactAdapter extends BaseAdapter {
         contactDataArrayList = _ContactDataArr;
         Inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+
     }
+
 
     @Override
     public int getCount() {
