@@ -12,9 +12,6 @@ import android.os.Bundle;
 import java.io.*;
 import java.util.ArrayList;
 
-/**
- * 파일 읽어와서 리스트뷰에 적용할때 파일을 읽고 어댑터데이터로 이루어진 ArrayList 파일로 갱신하면된다. 종료시 저장하는방식쓰면됨
- */
 public class MainActivity extends AppCompatActivity {
     View dialogView;
     File initialFile;
@@ -31,53 +28,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("연락처");
+
         listView = findViewById(R.id.listView);
         DataArr.clear();
-        try {
-            Toast.makeText(getApplicationContext(), "연락처 목록불러오는중", Toast.LENGTH_SHORT).show();
-            initialFile = new File("/data/data/com.example.subject/ContactFile.txt");
-            if (initialFile.exists()) {// 파일이 있으면 불러오기
-                filereader = new FileReader(initialFile);
-                readContactFile = new BufferedReader(filereader);
-                String line = null;
-                while ((line = readContactFile.readLine()) != null) {
-                    String[] forInsert = line.split(",", 3);
-                    DataArr.add(new ContactData(forInsert[0], forInsert[1], forInsert[2]));
-                }
-                readContactFile.close();
-                filereader.close();
-            } else {//없으면
-                Toast.makeText(getApplicationContext(), "연락처 파일 생성", Toast.LENGTH_SHORT).show();
-                initialFile.createNewFile();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         adapter = new ContactAdapter(
                 this, R.layout.list_item, DataArr);
-
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-                //putExtra 문제
-                intent.putExtra("name", adapter.getItem(0));
-                intent.putExtra("phone", adapter.getItem(1));
-                intent.putExtra("address", adapter.getItem(2));
+                intent.putExtra("name", DataArr.get(position).name);
+                intent.putExtra("phone", DataArr.get(position).phone);
+                intent.putExtra("address", DataArr.get(position).address);
                 startActivity(intent);
             }
         });
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-                return true;
-            }
-        });
-
     }
 
     @Override
@@ -93,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu1:
+                /**
+                 * 옵션메뉴 추가버튼 누를시
+                 */
                 dialogView = View.inflate(MainActivity.this, R.layout.inputdialog, null);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("연락처 정보 입력");
@@ -100,27 +71,66 @@ public class MainActivity extends AppCompatActivity {
                 dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getApplicationContext(), "온클릭", Toast.LENGTH_SHORT).show();
                         edName = dialogView.findViewById(R.id.inputName);
                         edPhone = dialogView.findViewById(R.id.inputPhone);
                         edAddress = dialogView.findViewById(R.id.inputAddress);
                         DataArr.add(new ContactData(edName.getText().toString(), edPhone.getText().toString(), edAddress.getText().toString()));
                         adapter.notifyDataSetChanged();
+
+                        try {
+                            FileWriter fileWriter = new FileWriter(initialFile, true);
+                            writeContactFile = new BufferedWriter(fileWriter);
+                            writeContactFile.append(edName.getText()).append(",")
+                                    .append(edPhone.getText()).append(",")
+                                    .append(edAddress.getText()).append("\n");
+                            writeContactFile.close();
+                            fileWriter.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        LayoutInflater inflater = getLayoutInflater();
+                        View layout = inflater.inflate(R.layout.custom_toast_layout,
+                                (ViewGroup) findViewById(R.id.toast_layout_root));
+
+                        TextView title = (TextView) layout.findViewById(R.id.title);
+                        TextView description = (TextView) layout.findViewById(R.id.description);
+                        description.setText("연락처 추가 완료");
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.setDuration(Toast.LENGTH_SHORT);
+                        toast.setView(layout);
+                        toast.show();
                         dialog.dismiss();
                     }
                 });
                 dlg.setNegativeButton("취소", null);
                 dlg.show();
-            case R.id.menu2:
         }
         return true;
     }
 
     @Override
     protected void onStart() {
+        /**
+         * 앱 시작시 파일 불러오기
+         */
         super.onStart();
         try {
-            Toast.makeText(getApplicationContext(), "연락처 목록불러오는중", Toast.LENGTH_SHORT).show();
+            DataArr.clear();
+            LayoutInflater inflater = getLayoutInflater();
+            View layout = inflater.inflate(R.layout.custom_toast_layout,
+                    (ViewGroup) findViewById(R.id.toast_layout_root));
+
+            TextView title = (TextView) layout.findViewById(R.id.title);
+            TextView description = (TextView) layout.findViewById(R.id.description);
+            description.setText("연락처 목록 불러오는중");
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
             initialFile = new File("/data/data/com.example.subject/ContactFile.txt");
             if (initialFile.exists()) {// 파일이 있으면 불러오기
                 filereader = new FileReader(initialFile);
@@ -130,6 +140,13 @@ public class MainActivity extends AppCompatActivity {
                     String[] forInsert = line.split(",", 3);
                     DataArr.add(new ContactData(forInsert[0], forInsert[1], forInsert[2]));
                 }
+                description.setText("파일 불러오기 완료");
+
+                toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.setDuration(Toast.LENGTH_SHORT);
+                toast.setView(layout);
+                toast.show();
                 readContactFile.close();
                 filereader.close();
             } else {//없으면
@@ -160,18 +177,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        try {
-            FileWriter fileWriter = new FileWriter(initialFile, true);
-            writeContactFile = new BufferedWriter(fileWriter);
 
-            writeContactFile.append(edName.getText()).append(",")
-                    .append(edPhone.getText()).append(",")
-                    .append(edAddress.getText()).append("\n");
-            writeContactFile.close();
-            fileWriter.close();
-            DataArr.clear();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

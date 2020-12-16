@@ -1,7 +1,5 @@
 package com.example.subject;
 
-import android.widget.EditText;
-
 public class ContactData {
     String name;
     String phone;

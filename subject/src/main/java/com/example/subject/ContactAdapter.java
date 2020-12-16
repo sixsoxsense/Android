@@ -34,7 +34,8 @@ public class ContactAdapter extends BaseAdapter {
 
     @Override
     public String getItem(int position) {
-        return contactDataArrayList.get(position).name;
+        String DataItem=contactDataArrayList.get(position).toString();
+        return DataItem;
 
     }
 

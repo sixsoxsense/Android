@@ -2,6 +2,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="연락처 추가"
           android:id="@+id/menu1"/>
-    <item android:title="연락처 삭제"
-          android:id="@+id/menu2"/>
 </menu>

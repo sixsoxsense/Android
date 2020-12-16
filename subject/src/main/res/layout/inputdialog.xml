@@ -9,7 +9,7 @@
     />
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
               android:id="@+id/inputName"
-              android:inputType="textPersonName"
+              android:inputType="textPersonName" android:privateImeOptions="defaultInputmode=korean"
     />
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
               android:text="전화번호"
@@ -23,6 +23,6 @@
 
               android:hint="주소"/>
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:id="@+id/inputAddress"
+              android:id="@+id/inputAddress" android:privateImeOptions="defaultInputmode=korean"
     />
 </LinearLayout>
